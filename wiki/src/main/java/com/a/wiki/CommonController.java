@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -18,7 +19,7 @@ public class CommonController {
 	
 	//로그인 기능
 	@ResponseBody
-	@RequestMapping(value="/v1/login")
+	@RequestMapping(value="/v1/login", produces="application/text; charset=utf8;", method=RequestMethod.PUT)
 	public String loginAction(@RequestBody String jsonStr) {
 		
 		JSONObject result = new JSONObject();
@@ -53,7 +54,7 @@ public class CommonController {
 	
 	//회원가입 기능
 	@ResponseBody
-	@RequestMapping(value="/v1/join")
+	@RequestMapping(value="/v1/join", produces="application/text; charset=utf8;", method=RequestMethod.POST)
 	public String insertMember(@RequestBody String jsonStr) {
 		
 		JSONObject result = new JSONObject();

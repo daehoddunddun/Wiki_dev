@@ -66,7 +66,7 @@
                 <input type="password">
             </li>
             <li>
-                <button type="button" class="btn btn_blue">계정 만들기</button>
+                <button type="button" class="btn btn_blue">로그인</button>
             </li>
             <li>
                 <button type="button" class="btn btn_blue">비밀번호 찾기</button>
@@ -81,19 +81,18 @@
 
 	<script type="text/javascript">
 		
+		//요청 데이터 준비
 		let params = {
-		    '_id': 'test.getPlayersWhere2',
-		    'age': 10,
-		    'name': '%'
+		    'memberId': 'admin',
+		    'memberPassword': 'password',
 		};
 		
-		//1. url (요청하고자하는 주소)
-		//2. 방식( protocol, )
+		//데이터 요청
 		fetch(
-			'http://localhost:8080/json',
+			'http://localhost:8080/v1/login',
 	    {
 	        method: 'put',
-	        headers: { "Content-Type": "application/json" },
+	        headers: { "Content-Type": "application/text; charset=UTF-8;" },
 	        body: JSON.stringify(params)
 	    })
 	    .then(function (response) {
@@ -102,7 +101,6 @@
 	        }
 	    })
 	    .then(function (data) {
-	    	console.log('2.');
        		console.log(data);
 	        if (data) 
         	{
