@@ -1,15 +1,21 @@
 package com.a.wiki;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.a.wiki.service.CommonService;
+
 @Controller
 public class CommonController {
 
+	@Autowired
+	CommonService comService;
+	
 	//로그인 화면 호출
 	@RequestMapping(value="/login")
 	public String login() {
@@ -17,31 +23,12 @@ public class CommonController {
 		return "login";
 	}
 	
-	//로그인 기능
+	//로그인 요청
 	@ResponseBody
 	@RequestMapping(value="/v1/login", produces="application/text; charset=utf8;", method=RequestMethod.PUT)
 	public String loginAction(@RequestBody String jsonStr) {
 		
-		JSONObject result = new JSONObject();
-		result.put("data", jsonStr);
-		
-		try {
-			JSONObject param = new JSONObject(jsonStr);
-			
-			if("admin".equals(param.get("memberId"))) {
-				result.put("result", "-1");
-				result.put("msg", "사용 할 수 없는 사용자이름 입니다.");
-			}else {
-				result.put("result", "0");
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			result.put("result", "-1");
-			result.put("msg", "통신오류");
-		}
-		
-		return result.toString();
+		return comService.login(jsonStr).toString();
 	}
 	
 	
@@ -52,32 +39,12 @@ public class CommonController {
 		return "join";
 	}
 	
-	//회원가입 기능
+	//회원가입 요청
 	@ResponseBody
 	@RequestMapping(value="/v1/join", produces="application/text; charset=utf8;", method=RequestMethod.POST)
 	public String insertMember(@RequestBody String jsonStr) {
 		
-		JSONObject result = new JSONObject();
-		
-		try {
-			JSONObject param = new JSONObject(jsonStr);
-			
-			if("admin".equals(param.get("memberId"))) {
-				result.put("result", "-1");
-				result.put("msg", "사용 할 수 없는 사용자이름 입니다.");
-			}else {
-				result.put("result", "0");
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			result.put("result", "-1");
-			result.put("msg", "통신오류");
-		}
-		
-		
-		
-		return result.toString();
+		return comService.join(jsonStr).toString();
 	}
 	
 }
