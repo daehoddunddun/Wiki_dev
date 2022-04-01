@@ -6,4 +6,12 @@
 	<select id="selectTest" resultType="String">
 		select now()
 	</select>
+	
+	<select id="selectMember" parameterType="java.util.Map" resultType="int">
+	select 
+		count(*) 
+	from wiki_member
+	where member_id = #{memberId}
+	and member_password = #{memberPassword}
+	</select>
 </mapper>
