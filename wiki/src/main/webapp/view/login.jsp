@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="../plugins/axicon/axicon.min.css" />
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sub.css">
+    <script src="../js/login.js"></script>
 </head>
 
 <body>
     <!-- Header -->
 <header class="flex_wrap f_sb">
     <div class="flex_wrap f_sb">
-        <h1 class="logo"><a href="#"><img src="../images/logo_hd.png" alt=""></a></h1>
+        <h1 class="logo"><a href="/"><img src="../images/logo_hd.png" alt=""></a></h1>
         <input type="text" class="search">
     </div>
     <div class="btn_more_wrap">
@@ -59,11 +60,11 @@
         <ul class="join_wrap">
             <li>
                 <label for="">사용자 이름</label>
-                <input type="text">
+                <input type="text" id="memberId">
             </li>
             <li>
                 <label for="">비밀번호</label>
-                <input type="password">
+                <input type="password" id="memberPassword">
             </li>
             <li>
                 <button type="button" class="btn btn_blue" onclick="login();">로그인</button>
@@ -72,51 +73,10 @@
                 <button type="button" class="btn btn_blue">비밀번호 찾기</button>
             </li>
             <li>
-                <button type="button" class="btn btn_blue">회원가입</button>
+                <button type="button" class="btn btn_blue" onclick="location.href='/join'">회원가입</button>
             </li>
         </ul>
     </div>
     <!-- // Contents -->
 </body>
-
-	<script type="text/javascript">
-		
-		//요청 데이터 준비
-		let params = {
-		    'memberId': 'aaa',
-		    'memberPassword': 'password',
-		};
-		
-		
-		function login(){
-			//데이터 요청
-			fetch(
-				'http://localhost:8080/v1/login',
-		    {
-		        method: 'put',
-		        headers: { "Content-Type": "application/text; charset=UTF-8;" },
-		        body: JSON.stringify(params)
-		    })
-		    .then(function (response) {
-		        if (response.ok) {
-		        	return response.json();
-		        }
-		    })
-		    .then(function (data) {
-	       		console.log(data);
-		        if (data) 
-	        	{
-		        	//data.result : 0 이면 성공 , -1이면 실패
-		        	if(data.result == "0"){
-		        		alert('로그인 되었습니다.');
-		        	}else if(data.result == "-1"){
-		        		alert(data.msg)
-		        	}
-		        
-	        	}
-		        else
-				console.log("error");
-		     });
-		}
-	</script>
 </html>

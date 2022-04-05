@@ -24,7 +24,7 @@ public class CommonController {
 	}
 	
 	//로그인 요청
-	@ResponseBody
+	@ResponseBody 
 	@RequestMapping(value="/v1/login", produces="application/text; charset=utf8;", method=RequestMethod.PUT)
 	public String loginAction(@RequestBody String jsonStr) {
 		

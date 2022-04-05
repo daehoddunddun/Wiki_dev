@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="../plugins/axicon/axicon.min.css" />
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sub.css">
+    <script src="../js/join.js"></script>
 </head>
 
 <body>
     <!-- Header -->
 <header class="flex_wrap f_sb">
     <div class="flex_wrap f_sb">
-        <h1 class="logo"><a href="#"><img src="../images/logo_hd.png" alt=""></a></h1>
+        <h1 class="logo"><a href="/"><img src="../images/logo_hd.png" alt=""></a></h1>
         <input type="text" class="search">
     </div>
     <div class="btn_more_wrap">
@@ -59,11 +60,11 @@
         <ul class="join_wrap">
             <li>
                 <label for="">사용자 이름</label>
-                <input type="text">
+                <input type="text" id="memberId">
             </li>
             <li>
                 <label for="">비밀번호</label>
-                <input type="password">
+                <input type="password" id="memberPassword">
             </li>
             <li>
                 <label for="">비밀번호 확인</label>
@@ -71,10 +72,10 @@
             </li>
             <li>
                 <label for="">이메일</label>
-                <input type="text">
+                <input type="text" id="memberEmail">
             </li>
             <li>
-                <button type="button" class="btn btn_blue">계정 만들기</button>
+                <button type="button" class="btn btn_blue" onclick="join();">계정 만들기</button>
             </li>
         </ul>
     </div>
