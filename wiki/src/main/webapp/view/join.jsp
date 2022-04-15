@@ -68,7 +68,7 @@
             </li>
             <li>
                 <label for="">비밀번호 확인</label>
-                <input type="password">
+                <input type="password" id="memberPasswordCheck">
             </li>
             <li>
                 <label for="">이메일</label>
