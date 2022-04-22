@@ -57,27 +57,27 @@
 </ul>
     <div class="wrap">
         <h2 class="tit_join">회원가입</h2>
-        <ul class="join_wrap">
-            <li>
-                <label for="">사용자 이름</label>
-                <input type="text" id="memberId">
-            </li>
-            <li>
-                <label for="">비밀번호</label>
-                <input type="password" id="memberPassword">
-            </li>
-            <li>
-                <label for="">비밀번호 확인</label>
-                <input type="password" id="memberPasswordCheck">
-            </li>
-            <li>
-                <label for="">이메일</label>
-                <input type="text" id="memberEmail">
-            </li>
-            <li>
-                <button type="button" class="btn btn_blue" onclick="join();">계정 만들기</button>
-            </li>
-        </ul>
+	        <ul class="join_wrap">
+	            <li>
+	                <label for="">사용자 이름</label>
+	                <input type="text" id="memberId">
+	            </li>
+	            <li>
+	                <label for="">비밀번호</label>
+	                <input type="password" id="memberPassword" autocomplete="off">
+	            </li>
+	            <li>
+	                <label for="">비밀번호 확인</label>
+	                <input type="password" id="memberPasswordCheck" autocomplete="off">
+	            </li>
+	            <li>
+	                <label for="">이메일</label>
+	                <input type="text" id="memberEmail">
+	            </li>
+	            <li>
+	                <button type="button" class="btn btn_blue" onclick="join();">계정 만들기</button>
+	            </li>
+	        </ul>
     </div>
     <!-- // Contents -->
 </body>
