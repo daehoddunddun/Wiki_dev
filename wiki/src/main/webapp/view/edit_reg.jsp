@@ -66,7 +66,13 @@
     </li>
 </ul>
     <div class="wrap">
-        <div id="summernote"></div>
+        <div>
+        	<button type="button" class="btn btn_blue" style="float: right;" onclick="save();">저장</button>
+        	<h2 class="tit_join">글쓰기</h2>
+        </div                                                                                                             >
+        <div class="summernote_wrap">
+        	<div id="summernote"></div>
+        </div>
     </div>
     <!-- // Contents -->
 </body>
